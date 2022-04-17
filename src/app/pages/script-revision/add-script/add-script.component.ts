@@ -22,7 +22,8 @@ export class AddScriptComponent implements OnInit {
   selectedgenra;
   selectedSubgenra;
   selectedeating;
-  selectscript
+  selectscript;
+  textareainput;
   showscriptLink = false
   languages = [
     { id: 1, name: 'Arabic' },
@@ -57,8 +58,8 @@ export class AddScriptComponent implements OnInit {
 
    ]
    scripts=[
-    { id: 1, name: 'script1' },
-    { id: 1, name: 'script2' },
+    { id: 1, name: 'novel' },
+    { id: 1, name: 'play' },
    ]
 
 
@@ -107,7 +108,7 @@ export class AddScriptComponent implements OnInit {
 
     this.regularForm = new FormGroup({
       name: new FormControl(null, [Validators.required]),
-      source: new FormControl(null, [Validators.required]),
+      source: new FormControl(null, [Validators.required, Validators.pattern('(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?')]),
       script: new FormControl(null, [Validators.required]),
       subGenra: new FormControl(null, [Validators.required]),
       movie: new FormControl(null, [Validators.required]),

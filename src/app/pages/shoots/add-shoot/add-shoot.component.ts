@@ -57,7 +57,7 @@ export class AddShootComponent implements OnInit {
    ]
    locations=[
     { id: 1, name: 'Adventure' },
-    { id: 1, name: 'action' },
+    { id: 1, name: 'Action' },
    ]
 
 

@@ -350,10 +350,10 @@
 
                                 <div class="form-group">
                                   <label for="inputname"
-                                    >Link us to the source of your work</label
+                                    >Please provide us url to the source of your work</label
                                   >
                                   <div class="input-content">
-                                    <i class="icon-check" id="icon" [ngClass]="{'success-icon': !f.source.invalid && f.source.touched && f.source.dirty}"></i>
+                                    <i class="icon-check" id="icon" [ngClass]="{'success-icon': !f.source.invalid && f.source.touched && f.source.dirty && !f.formcheck4.errors?.pattern}"></i>
                                     <input
                                       type="text"
                                       class="form-control"
@@ -379,7 +379,7 @@
                                           type="radio"
                                           id="radio11"
                                           name="formcheck4"
-                                          value="yes"
+                                          value="Yes"
                                           formControlName="formcheck4"
                                           class="custom-control-input form-control"
                                           
@@ -398,7 +398,7 @@
                                           id="radio12"
                                           formControlName="formcheck4"
                                           name="formcheck4"
-                                          value="no"
+                                          value="No"
                                           class="custom-control-input form-control"
                                           
                                         />
@@ -428,9 +428,9 @@
                                   >
                                   <div class="input-content">
                                     <div class="textarea-content">
-                                      <i class="icon-check" id="icon" [ngClass]="{'success-icon': !f.summery.invalid && f.summery.touched && f.summery.dirty}"></i>
-                                      <textarea id="textarea" rows="8" class="form-control" name="summery" placeholder="" formControlName="summery"
-                                      required></textarea>
+                                      <i class="icon-check" id="icon" [ngClass]="{'success-icon': textareainput}"></i>
+                                      <textarea id="textarea" rows="8" class="form-control" name="summery" placeholder="" formControlName="summery" [(ngModel)]="textareainput"
+                                      ></textarea>
                                     </div>
                                    
 
@@ -440,10 +440,11 @@
                                         (click)="next()"
                                         class="btn btnnext"
                                         id="btn"
-                                        [disabled]="!(selectedLanguage && selectedeating && selectedgenra && selectedSubgenra
-                                        && f.summery.valid && f.name.valid && f.formcheck1.dirty && f.formcheck2.dirty && (f.formcheck3.dirty && f.formcheck3.value== 'Yes' && !showscriptLink) || (f.formcheck3.dirty && f.formcheck3.value== 'No' && showscriptLink && selectscript && f.formcheck4.dirty && f.source.valid))"
-                                        [ngClass]="{ 'success-upload': selectedLanguage && selectedeating && selectedgenra && selectedSubgenra
-                                        && f.summery.valid && f.name.valid && f.formcheck1.dirty && f.formcheck2.dirty && (f.formcheck3.dirty && f.formcheck3.value== 'Yes' && !showscriptLink) || (f.formcheck3.dirty && f.formcheck3.value== 'No' && showscriptLink && selectscript && f.formcheck4.dirty && f.source.valid)
+                                        [disabled]="!(textareainput && selectedLanguage && selectedeating && selectedgenra && selectedSubgenra
+                                        && f.name.valid  && f.formcheck1.dirty && f.formcheck2.dirty && ((f.formcheck3.dirty && f.formcheck3.value== 'Yes' && !showscriptLink) || (f.formcheck3.dirty && f.formcheck3.value== 'No' && showscriptLink && selectscript && f.formcheck4.dirty && f.source.valid && showscriptLink)))"
+                                       
+                                        [ngClass]="{ 'success-upload': textareainput && selectedLanguage && selectedeating && selectedgenra && selectedSubgenra
+                                         && f.name.valid  && f.formcheck1.dirty && f.formcheck2.dirty && ((f.formcheck3.dirty && f.formcheck3.value== 'Yes' && !showscriptLink) || (f.formcheck3.dirty && f.formcheck3.value== 'No' && showscriptLink && selectscript && f.formcheck4.dirty && f.source.valid && showscriptLink))
                                        }"
                                         
                                       >

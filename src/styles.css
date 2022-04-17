@@ -40,12 +40,12 @@ body
     font-family: sans-serif;
     font-weight: bold;
     color: #6E1946;
-    margin-right: 3rem;
+    /* margin-right: 3rem; */
     padding-bottom: 2px;
 }
 .welcome a
 {
-margin-right: 5rem;
+margin-right: 1rem;
 }
 
 
