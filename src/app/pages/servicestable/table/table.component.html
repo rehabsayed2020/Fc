@@ -1,0 +1,244 @@
+<!--Basic DataTable Starts-->
+<section id="basic-datatable" class="mb-3">
+  <div class="row text-right">
+    <div class="col-12">
+      <div class="rebort">
+        <img src="../../../../assets/img/new/rebort.png" />
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-11">
+      <!-- <ngx-datatable class="bootstrap" [rows]="rows" [loadingIndicator]="loadingIndicator" [columns]="columns"
+        [columnMode]="'force'" [headerHeight]="50"  [rowHeight]="getRowHeight" [reorderable]="reorderable">
+      </ngx-datatable> -->
+
+      <!-- { prop: 'No' },
+      { prop: 'Requested Services' },
+      { prop: 'Request Date' },
+      { prop: 'Process Time' },
+      { prop: 'Status' },
+      { prop: 'Action' } -->
+
+      <ngx-datatable
+        class="bootstrap"
+        [rows]="rows"
+        [columnMode]="'force'"
+        [headerHeight]="50"
+        [rowHeight]="50"
+        [scrollbarV]="true"
+        [rowClass]="isEditingRow"
+        [sorts]="[{ prop: 'name', dir: 'desc' }]"
+      >
+        <ngx-datatable-column name="No">
+          <ng-template let-row="row" ngx-datatable-cell-template>
+            <span  [ngClass]="{
+              textreject: row.Action == 'Why?',
+              textsuccess: row.Action == 'Check',
+              textprocess: row.Action == 'Details'
+            }">
+            {{ row.No }}
+
+            </span>
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Requested Services">
+          <ng-template let-row="row" ngx-datatable-cell-template>
+            <span
+            [ngClass]="{
+              textreject: row.Action == 'Why?',
+              textsuccess: row.Action == 'Check',
+              textprocess: row.Action == 'Details'
+            }"
+            > {{ row.Requested_Services }} 
+          </span>
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Request Date">
+          <ng-template let-row="row" ngx-datatable-cell-template>
+            <span  [ngClass]="{
+              textreject: row.Action == 'Why?',
+              textsuccess: row.Action == 'Check',
+              textprocess: row.Action == 'Details'
+            }">
+            {{ row.Request_Date }}
+
+          </span>
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Process Time">
+          <ng-template let-row="row" ngx-datatable-cell-template>
+            <span  [ngClass]="{
+              textreject: row.Action == 'Why?',
+              textsuccess: row.Action == 'Check',
+              textprocess: row.Action == 'Details'
+            }">
+            {{ row.Process_Time }}
+
+            </span>
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Status">
+          <ng-template let-row="row" ngx-datatable-cell-template>
+            <span  [ngClass]="{
+              textreject: row.Action == 'Why?',
+              textsuccess: row.Action == 'Check',
+              textprocess: row.Action == 'Details'
+            }">
+            {{ row.Status }}
+
+          </span>
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Action">
+          <ng-template let-row="row" ngx-datatable-cell-template>
+            <p
+              [ngClass]="{
+                why: row.Action == 'Why?',
+                check: row.Action == 'Check',
+                details: row.Action == 'Details'
+              }"
+            >
+              <a (click)="routlinks(row.Action)"> {{ row.Action }} </a>
+            </p>
+          </ng-template>
+        </ngx-datatable-column>
+        <!-- <ngx-datatable-column name="Gender">
+      </ngx-datatable-column> -->
+      </ngx-datatable>
+    </div>
+  </div>
+</section>
+<!--Basic DataTable Ends-->
+
+<!--Shopping cart starts-->
+<!-- <section id="shopping-cart">
+  <div class="row text-left">
+    <div class="col-sm-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">Shopping Cart</h4>
+        </div>
+        <div class="card-content">
+          <div class="card-body">
+            <table class="table table-responsive-md text-center">
+              <thead>
+                <tr>
+                  <th>Image</th>
+                  <th>Product</th>
+                  <th>Weight</th>
+                  <th>Price</th>
+                  <th>Quantity</th>
+                  <th>Amount</th>
+                  <th>Delete</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><img class="media-object round-media" src="assets/img/elements/01.png" alt="Generic placeholder image"
+                      style="height: 75px;" /></td>
+                  <td>Product 1</td>
+                  <td>38.9 Ounce</td>
+                  <td>$9.97</td>
+                  <td>
+                    2
+                    <div class="btn-group ml-1">
+                      <a class="bg-info px-1 py-1 white font-medium-5" href="javascript:void(0)">-</a>
+                      <a class="bg-info px-1 py-1 white font-medium-5" href="javascript:void(0)">+</a>
+                    </div>
+                  </td>
+                  <td>$19.94</td>
+                  <td>
+                    <a class="danger" data-original-title="" title="">
+                      <i class="ft-trash font-medium-3"></i>
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td><img class="media-object round-media" src="assets/img/elements/07.png" alt="Generic placeholder image"
+                      style="height: 75px;" /></td>
+                  <td>Product 2</td>
+                  <td>15.9 Ounce</td>
+                  <td>$6.00</td>
+                  <td>
+                    2
+                    <div class="btn-group ml-1">
+                      <a class="bg-info px-1 py-1 white font-medium-5" href="javascript:void(0)">-</a>
+                      <a class="bg-info px-1 py-1 white font-medium-5" href="javascript:void(0)">+</a>
+                    </div>
+                  </td>
+                  <td>$12.00</td>
+                  <td>
+                    <a class="danger" data-original-title="" title="">
+                      <i class="ft-trash font-medium-3"></i>
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td><img class="media-object round-media" src="assets/img/elements/11.png" alt="Generic placeholder image"
+                      style="height: 75px;" /></td>
+                  <td>Product 3</td>
+                  <td>20.9 Ounce</td>
+                  <td>$15.78</td>
+                  <td>
+                    1
+                    <div class="btn-group ml-1">
+                      <a class="bg-info px-1 py-1 white font-medium-5" href="javascript:void(0)">-</a>
+                      <a class="bg-info px-1 py-1 white font-medium-5" href="javascript:void(0)">+</a>
+                    </div>
+                  </td>
+                  <td>$15.78</td>
+                  <td>
+                    <a class="danger" data-original-title="" title="">
+                      <i class="ft-trash font-medium-3"></i>
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td><img class="media-object round-media" src="assets/img/elements/14.png" alt="Generic placeholder image"
+                      style="height: 75px;" /></td>
+                  <td>Product 4</td>
+                  <td>90 Ounce</td>
+                  <td>$24.51</td>
+                  <td>
+                    3
+                    <div class="btn-group ml-1">
+                      <a class="bg-info px-1 py-1 white font-medium-5" href="javascript:void(0)">-</a>
+                      <a class="bg-info px-1 py-1 white font-medium-5" href="javascript:void(0)">+</a>
+                    </div>
+                  </td>
+                  <td>$73.53</td>
+                  <td>
+                    <a class="danger" data-original-title="" title="">
+                      <i class="ft-trash font-medium-3"></i>
+                    </a>
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+
+                  <td><b>Total</b></td>
+                  <td><b>$101.31</b></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td><button class="btn btn-success btn-raised">Continue</button> </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+<!--Shopping cart ends-->

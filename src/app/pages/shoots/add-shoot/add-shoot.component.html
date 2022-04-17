@@ -1,0 +1,733 @@
+<div class="welcome-container">
+  <div class="row">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-12">
+      <div class="header-title">
+        <h2>Welcome to Film Wizard</h2>
+      </div>
+      <div class="top-nav">
+        <a>About</a>
+        <a>Script Guide</a>
+        <a>conditions and restrictions</a>
+        <a>before you start</a>
+        <a>need help?</a>
+      </div>
+    </div>
+
+    <!-- <div class="container">
+      <div id="stepper1" class="bs-stepper vertical">
+        <div class="bs-stepper-header">
+          <div class="step" data-target="#test-l-1">
+            <button class="step-trigger">
+              <span class="bs-stepper-circle">1</span>
+              <span class="bs-stepper-label">Let's collect some info</span>
+            </button>
+          </div>
+          <div class="step" data-target="#test-l-2">
+            <button class="step-trigger">
+              <span class="bs-stepper-circle">2</span>
+              <span class="bs-stepper-label">Submit your materials</span>
+            </button>
+          </div>
+         
+          <div class="step" data-target="#test-l-3" style="text-align: left;">
+            <button class="step-trigger">
+              <span class="bs-stepper-circle">3</span>
+              <span class="bs-stepper-label">We are done!</span>
+            </button>
+          </div>
+        </div>
+        <div class="bs-stepper-content">
+          <form (ngSubmit)="onSubmit()">
+            <div id="test-l-1" class="content">
+              part1
+             
+            </div>
+            <div id="test-l-2" class="content">
+              part2
+            </div>
+
+            <div id="test-l-3" class="content">
+             part3
+            </div>
+           
+          </form>
+        </div>
+      </div>
+    </div> -->
+  </div>
+  <div class="row">
+    <form style="padding: 75px 0" [formGroup]="regularForm"
+    (ngSubmit)="onReactiveFormSubmit()"
+    novalidate>
+      <!-- form1 -->
+      <div class="form1 form-content">
+        <div class="col-xl-2 col-lg-2 col-md-2 col-2">
+          <span class="line"></span>
+          <i class="fa fa-check trueform" id="icon"
+          [ngClass]="{'success-icon': !f.name.invalid && f.name.touched && f.name.dirty && selectedeating && selectedgenra&& selectedLanguage && selectedSubgenra && check && acceptLaws}"
+          ></i>
+          <!-- <img src="../../../../assets/img/new/checkform.svg" /> -->
+          <span class="line" id="linlaw"></span>
+        </div>
+        <div class="col-xl-10 col-lg-10 col-md-10 col-10 horizon1">
+          <h4>Let's have a quick info about your film...</h4>
+
+          <div class="firstf">
+            <div class="col-xl-4 col-lg-4 col-md-4 col-4">
+              <div class="form-group">
+                <label for="inputname">What is your movie name?</label>
+                <div class="input-content">
+                  <i class="icon-check" id="icon" [ngClass]="{'success-icon': !f.name.invalid && f.name.touched && f.name.dirty}"></i>
+
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="inputname"
+                    formControlName="name"
+                  />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="inputname">What is your movie genra?</label>
+                <div class="input-content">
+                  <i class="icon-check" id="icon" 
+                  [ngClass]="{'success-icon': selectedgenra}"></i>
+
+                  <ng-select
+                    [items]="genra"
+                    bindLabel="name"
+                    placeholder="Choose genra"
+                    [(ngModel)]="selectedgenra"
+                    
+                    formControlName="genra"
+                  >
+                  </ng-select>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-4 col-4">
+              <div class="form-group">
+                <label for="inputname">What is your script Language?</label>
+                <div class="input-content">
+                  <i class="icon-check" id="icon"  [ngClass]="{'success-icon': selectedLanguage}"></i>
+
+                  <ng-select
+                    [items]="languages"
+                    bindLabel="name"
+                    placeholder="Choose language"
+                    [(ngModel)]="selectedLanguage"
+                    formControlName="language"
+
+                  >
+                  </ng-select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="inputname">What is your movie sub genra?</label>
+                <div class="input-content">
+                  <i class="icon-check" id="icon"  [ngClass]="{'success-icon': selectedSubgenra}"></i>
+
+                  <ng-select
+                    [items]="subgenra"
+                    bindLabel="name"
+                    placeholder="Choose Sub genra"
+                    [(ngModel)]="selectedSubgenra"
+                    formControlName="subGenra"
+
+                  >
+                  </ng-select>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-4 col-4">
+              <div class="form-group">
+                <label for="inputname">How do you rate your Movie?</label>
+                <div class="input-content">
+                  <i class="icon-check" id="icon"  [ngClass]="{'success-icon': selectedeating}"></i>
+
+                  <ng-select
+                    [items]="rating"
+                    bindLabel="name"
+                    placeholder="Choose Rating"
+                    [(ngModel)]="selectedeating"
+                    formControlName="movie"
+
+                  >
+                  </ng-select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="inputname"
+                  >Do you have a complete understanding about Saudi laws,
+                  erstrictions and community ethics?</label
+                >
+                <div class="input-content">
+                  <i class="icon-check" id="icon" [ngClass]="{'success-icon': acceptLaws}"></i>
+
+                  <div class="" style="margin-top: 6px">
+                    <div class="custom-control custom-radio d-block float-left">
+                      <input
+                        type="radio"
+                        id="radio1"
+                        name="form1check"
+                        value="Yes"
+                        class="custom-control-input form-control"
+                        formControlName="form1check"
+                        (change)="handelchange($event)"
+
+
+                      />
+                      <label
+                        class="custom-control-label"
+                        for="radio1"
+                        >Yes</label
+                      >
+                    </div>
+                    <div
+                      class="custom-control custom-radio d-block float-left ml-1"
+                    >
+                      <input
+                        type="radio"
+                        id="radio2"
+                        name="form1check"
+                        value="No"
+                        class="custom-control-input form-control"
+                        formControlName="form1check"
+                        (change)="handelchange($event)"
+                      />
+                      <label
+                        class="custom-control-label"
+                        for="radio2"
+                        >No</label
+                      >
+                     
+                    </div>
+
+                    
+                  </div>
+
+             
+                </div>
+
+                <div class="" *ngIf="!acceptLaws && check">
+                  <p>Sorry, we suggest that you read about Saudi
+                    Arabia laws, Restrictions and community
+                    ethics, the following article will explain in
+                    details everything you need to know.</p>
+                  <button type="button" class="read">
+                    <a>  Read Article</a>
+                  </button>                  </div>
+              </div>
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- form 2 -->
+      <div class="form2 form-content">
+        <div class="col-xl-2 col-lg-2 col-md-2 col-2">
+          <span class="line"></span>
+          <i class="fa fa-check trueform" id="icon"
+
+          [ngClass]="{'success-icon':!f.form2check1.errors?.required && f.form2check1.dirty 
+          && !f.form2check2.errors?.required && f.form2check2.dirty
+          && !f.form2check3.errors?.required && f.form2check3.dirty
+          && !f.form2check4.errors?.required && f.form2check4.dirty
+          && !f.form2check5.errors?.required && f.form2check5.dirty
+          && !f.form2check6.errors?.required && f.form2check6.dirty
+        
+        }"
+          
+          ></i>
+          <span class="line" style="height: 225px"></span>
+        </div>
+        <div class="col-xl-10 col-lg-10 col-md-10 col-10 horizon2">
+          <h4>In terms of film production....</h4>
+          <div class="secondf">
+            <div class="col-xl-4 col-lg-4 col-md-4 col-4">
+              <div class="form-group">
+                <label for="inputname"
+                  >Do you need film making equipment?</label
+                >
+                <div class="input-content">
+                  <i class="icon-check" id="icon" [ngClass]="{'success-icon':!f.form2check1.errors?.required && f.form2check1.dirty}"></i>
+                  <div class="" style="margin-top: 6px">
+                    <div class="custom-control custom-radio d-block float-left">
+                      <input
+                        type="radio"
+                        id="f2radio1"
+                        name="form2check1"
+                        value="Yes"
+                        formControlName="form2check1"
+                        class="custom-control-input form-control"
+                        
+
+                      />
+                      <label
+                        class="custom-control-label"
+                        for="f2radio1"
+                        >Yes</label
+                      >
+                    </div>
+                    <div
+                      class="custom-control custom-radio d-block float-left ml-1"
+                    >
+                      <input
+                        type="radio"
+                        id="f2radio2"
+                        name="form2check1"
+                        value="No"
+                        formControlName="form2check1"
+                        class="custom-control-input form-control"
+
+                      />
+                      <label
+                        class="custom-control-label"
+                        for="f2radio2"
+                        >No</label
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="inputname"
+                  >Will you need funding to produce your film?</label
+                >
+                <div class="input-content">
+                  <i class="icon-check" id="icon" [ngClass]="{'success-icon':!f.form2check2.errors?.required && f.form2check2.dirty}"></i>
+                  <div class="" style="margin-top: 6px">
+                    <div class="custom-control custom-radio d-block float-left">
+                      <input
+                        type="radio"
+                        id="f2radio3"
+                        name="form2check2"
+                        value="Yes"
+                        formControlName="form2check2"
+                        class="custom-control-input form-control"
+                      />
+                      <label
+                        class="custom-control-label"
+                        for="f2radio3"
+                        >Yes</label
+                      >
+                    </div>
+                    <div
+                      class="custom-control custom-radio d-block float-left ml-1"
+                    >
+                      <input
+                        type="radio"
+                        id="f2radio4"
+                        name="form2check2"
+                        value="No"
+                        formControlName="form2check2"
+                        class="custom-control-input form-control"
+                      />
+                      <label
+                        class="custom-control-label"
+                        for="f2radio4"
+                        >No</label
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-4 col-4">
+              <div class="form-group">
+                <label for="inputname"
+                  >Would you like to hire a production Studio?</label
+                >
+                <div class="input-content">
+                  <i class="icon-check" id="icon" [ngClass]="{'success-icon':!f.form2check3.errors?.required && f.form2check3.dirty}"></i>
+
+                  <div class="" style="margin-top: 6px">
+                    <div class="custom-control custom-radio d-block float-left">
+                      <input
+                        type="radio"
+                        id="f2radio5"
+                        name="form2check3"
+                        value="Yes"
+                        formControlName="form2check3"
+                        class="custom-control-input form-control"
+                      />
+                      <label
+                        class="custom-control-label"
+                        for="f2radio5"
+                        >Yes</label
+                      >
+                    </div>
+                    <div
+                      class="custom-control custom-radio d-block float-left ml-1"
+                    >
+                      <input
+                        type="radio"
+                        id="f2radio6"
+                        name="form2check3"
+                        value="No"
+                        formControlName="form2check3"
+                        class="custom-control-input form-control"
+                      />
+                      <label
+                        class="custom-control-label"
+                        for="f2radio6"
+                        >No</label
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputname"
+                  >Will you need local cast or actors?</label
+                >
+                <div class="input-content">
+                  <i class="icon-check" id="icon" [ngClass]="{'success-icon':!f.form2check4.errors?.required && f.form2check4.dirty}"></i>
+
+                  <div class="" style="margin-top: 6px">
+                    <div class="custom-control custom-radio d-block float-left">
+                      <input
+                        type="radio"
+                        id="f2radio7"
+                        name="form2check4"
+                        value="Yes"
+                        formControlName="form2check4"
+                        class="custom-control-input form-control"
+                      />
+                      <label
+                        class="custom-control-label"
+                        for="f2radio7"
+                        >Yes</label
+                      >
+                    </div>
+                    <div
+                      class="custom-control custom-radio d-block float-left ml-1"
+                    >
+                      <input
+                        type="radio"
+                        id="f2radio8"
+                        name="form2check4"
+                        value="No"
+                        formControlName="form2check4"
+                        class="custom-control-input form-control"
+                      />
+                      <label
+                        class="custom-control-label"
+                        for="f2radio8"
+                        >No</label
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-4 col-4">
+              <div class="form-group">
+                <label for="inputname"
+                  >Will you need to shoot scenes in public places?</label
+                >
+                <div class="input-content">
+                  <i class="icon-check" id="icon" [ngClass]="{'success-icon':!f.form2check5.errors?.required && f.form2check5.dirty}"></i>
+
+                  <div class="" style="margin-top: 6px">
+                    <div class="custom-control custom-radio d-block float-left">
+                      <input
+                        type="radio"
+                        id="f2radio9"
+                        name="form2check5"
+                        value="Yes"
+                        formControlName="form2check5"
+                        class="custom-control-input form-control"
+                      />
+                      <label
+                        class="custom-control-label"
+                        for="f2radio9"
+                        >Yes</label
+                      >
+                    </div>
+                    <div
+                      class="custom-control custom-radio d-block float-left ml-1"
+                    >
+                      <input
+                        type="radio"
+                        id="f2radio10"
+                        name="form2check5"
+                        value="No"
+                        formControlName="form2check5"
+                        class="custom-control-input form-control"
+                      />
+                      <label
+                        class="custom-control-label"
+                        for="f2radio10"
+                        >No</label
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="inputname"
+                  >Will your film requires to have stunts or special FX like
+                  real explosions...etc.</label
+                >
+                <div class="input-content">
+                  <i class="icon-check" id="icon" [ngClass]="{'success-icon':!f.form2check6.errors?.required && f.form2check6.dirty}"></i>
+
+                  <div class="" style="margin-top: 6px">
+                    <div class="custom-control custom-radio d-block float-left">
+                      <input
+                        type="radio"
+                        id="f2radio11"
+                        name="form2check6"
+                        value="Yes"
+                        formControlName="form2check6"
+                        class="custom-control-input form-control"
+                      />
+                      <label
+                        class="custom-control-label"
+                        for="f2radio11"
+                        >Yes</label
+                      >
+                    </div>
+                    <div
+                      class="custom-control custom-radio d-block float-left ml-1"
+                    >
+                      <input
+                        type="radio"
+                        id="f2radio12"
+                        name="form2check6"
+                        value="No"
+                        formControlName="form2check6"
+                        class="custom-control-input form-control"
+                      />
+                      <label
+                        class="custom-control-label"
+                        for="f2radio12"
+                        >No</label
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr />
+      </div>
+
+      <!-- form 3 -->
+      <div class="form3 form-content">
+        <div class="col-xl-2 col-lg-2 col-md-2 col-2">
+          <span class="line"></span>
+          <i class="fa fa-check trueform" id="icon"
+          [ngClass]="{'success-icon':!f.form3check2.errors?.required && f.form3check2.dirty && selectedLocation && !f.form3check1.errors?.required && f.form3check1.dirty}"
+          ></i>
+          <span class="line" style="height: 470px;"></span>
+        </div>
+        <div class="col-xl-10 col-lg-10 col-md-10 col-10 horizon3">
+          <h4>Saudi Arabia has lots of rich external filming locations.</h4>
+          <div class="thridf">
+            <div class="col-xl-4 col-lg-4 col-md-4 col-4">
+              <div class="form-group">
+                <label for="inputname"
+                  >would you like to use our location service?</label
+                >
+                <div class="input-content">
+                  <i class="icon-check" id="icon" [ngClass]="{'success-icon':!f.form3check1.errors?.required && f.form3check1.dirty}"></i>
+
+                  <div class="" style="margin-top: 6px">
+                    <div class="custom-control custom-radio d-block float-left">
+                      <input
+                        type="radio"
+                        id="f2radio13"
+                        name="form3check1"
+                        value="Yes"
+                        formControlName="form3check1"
+                        class="custom-control-input form-control"
+                        (change)="handelchange2($event)"
+                      />
+                      <label
+                        class="custom-control-label"
+                        for="f2radio13"
+                        >Yes</label
+                      >
+                    </div>
+                    <div
+                      class="custom-control custom-radio d-block float-left ml-1"
+                    >
+                      <input
+                        type="radio"
+                        id="f2radio14"
+                        name="form3check1"
+                        value="No"
+                        formControlName="form3check1"
+                        class="custom-control-input form-control"
+                        (change)="handelchange2($event)"
+                      />
+                      <label
+                        class="custom-control-label"
+                        for="f2radio14"
+                        >No</label
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-6 col-6">
+              <div class="form-group" style="width: 75%" *ngIf="showlist">
+                <label for="inputname">choose location type you need</label>
+                <div class="input-content">
+                  <i class="icon-check" id="icon" [ngClass]="{'success-icon':selectedLocation}"></i>
+
+                  <ng-select
+                    [items]="locations"
+                    bindLabel="name"
+                    placeholder="choose location"
+                    [(ngModel)]="selectedLocation"
+                    formControlName="location"
+                    (change)="selectlocation()"
+
+                  >
+                  </ng-select>
+                </div>
+              </div>
+
+              <div class="form-group" *ngIf="showlist && showMap">
+                <label for="inputname"
+                  >Would you like to hire a production Studio?</label
+                >
+                <div class="input-content">
+                  <i class="icon-check" id="icon" [ngClass]="{'success-icon':!f.form3check2.errors?.required && f.form3check2.dirty}"></i>
+
+                  <div class="finalradio" style="margin-top: 6px">
+                    <div class="custom-control custom-radio d-block float-left">
+                      <input
+                        type="radio"
+                        id="radio15"
+                        name="form3check2"
+                        value="shamli"
+                        formControlName="form3check2"
+                        class="custom-control-input form-control"
+                        (change)="handelchange3($event)"
+
+                      />
+                      <label
+                        class="custom-control-label"
+                        for="radio15"
+                        >Ash shamli</label
+                      >
+                    </div>
+
+                    <div
+                      class="custom-control custom-radio d-block float-left ml-1"
+                    >
+                      <input
+                        type="radio"
+                        id="radio16"
+                        name="form3check2"
+                        value="shaqra"
+                        formControlName="form3check2"
+                        class="custom-control-input form-control"
+                        (change)="handelchange3($event)"
+                      />
+                      <label
+                        class="custom-control-label"
+                        for="radio16"
+                        >shaqra</label
+                      >
+                    </div>
+
+                    <div class="custom-control custom-radio d-block float-left">
+                      <input
+                        type="radio"
+                        id="radio17"
+                        name="form3check2"
+                        value="Hoft"
+                        formControlName="form3check2"
+                        class="custom-control-input form-control"
+                        (change)="handelchange3($event)"
+
+                      />
+                      <label
+                        class="custom-control-label"
+                        for="radio17"
+                        >Hoft Al Batin</label
+                      >
+                    </div>
+
+                    <div
+                      class="custom-control custom-radio d-block float-left ml-1"
+                    >
+                      <input
+                        type="radio"
+                        id="radio18"
+                        name="form3check2"
+                        value="Riyad"
+                        formControlName="form3check2"
+                        class="custom-control-input form-control"
+                        (change)="handelchange3($event)"
+                      />
+                      <label
+                        class="custom-control-label"
+                        for="radio18"
+                        >Riyad City</label
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+              <!-- <div class="googlemap-responsive" >
+                <iframe
+                  width="100%"
+                  height="250"
+                  frameborder="0"
+                  scrolling="no"
+                  marginheight="0"
+                  marginwidth="0"
+                 [src]="url | safe"
+                ></iframe>
+              </div> -->
+
+              <div class="googlemap-responsive" *ngIf="showlist && showMap">
+                <iframe
+                  width="100%"
+                  height="250"
+                  frameborder="0"
+                  scrolling="no"
+                  marginheight="0"
+                  marginwidth="0"
+                  [src]="url | safe"   
+                            ></iframe>
+              </div>
+
+              <!-- [src]="url | safe"       -->
+
+
+              
+
+
+              <div class="choose2">
+                <button type="button" class="finalsubmit" id ='finalsubmit' routerLink="/serviceshoot/sucess">
+                  <a>  Submit</a>
+                </button>
+              </div>
+            </div>
+
+          
+          </div>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>

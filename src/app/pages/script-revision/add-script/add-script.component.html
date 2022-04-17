@@ -1,0 +1,769 @@
+<div class="welcome-container">
+  <div class="row">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-12">
+      <div class="header-title">
+        <h2>Welcome to Script Revision</h2>
+      </div>
+      <div class="top-nav">
+        <a>About</a>
+        <a>Script Guide</a>
+        <a>conditions and restrictions</a>
+        <a>before you start</a>
+        <a>need help?</a>
+      </div>
+
+      <div>
+        <div class="container">
+          <div id="stepper1" class="bs-stepper">
+            <div class="bs-stepper-header">
+              <div class="step" data-target="#test-l-1">
+                <button class="step-trigger">
+                  <!-- <span class="bs-stepper-circle">1</span> -->
+                  <span class="bs-stepper-label">Let's collect some info</span>
+                </button>
+              </div>
+              <div class="step" data-target="#test-l-2">
+                <button class="step-trigger">
+                  <!-- <span class="bs-stepper-circle">2</span> -->
+                  <span class="bs-stepper-label">Submit your materials</span>
+                </button>
+              </div>
+              <div class="step" data-target="#test-l-3">
+                <button class="step-trigger">
+                  <!-- <span class="bs-stepper-circle">2</span> -->
+                  <span class="bs-stepper-label">Terms and conditions</span>
+                </button>
+              </div>
+              <div class="step" data-target="#test-l-4">
+                <button class="step-trigger">
+                  <!-- <span class="bs-stepper-circle">3</span> -->
+                  <span class="bs-stepper-label">We are done!</span>
+                </button>
+              </div>
+            </div>
+            <div class="bs-stepper-content">
+              <form (ngSubmit)="onSubmit()">
+                <div id="test-l-1" class="content">
+                  <div class="row text-left">
+                    <div class="col-sm-12">
+                      <div class="">
+                        <div class="card-content">
+                          <div class="form-content">
+                            <form
+                              [formGroup]="regularForm"
+                              (ngSubmit)="onReactiveFormSubmit()"
+                              novalidate
+                            >
+                              <div class="col-xl-4 col-lg-4 col-md-6 col-6">
+                                <div class="form-group">
+                                  <label for="inputname"
+                                    >What is your script name?</label
+                                  >
+                                  <div class="input-content">
+                                    <i class="icon-check" id="icon" [ngClass]="{'success-icon': !f.name.invalid && f.name.touched && f.name.dirty}"></i>
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      id="inputname"
+                                      formControlName="name"
+                                      
+                                    />
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label for="inputname"
+                                    >What is your script Language?</label
+                                  >
+                                  <div class="input-content">
+                                    <i class="icon-check" id="icon" [ngClass]="{'success-icon': selectedLanguage}"></i>
+                                    <ng-select [items]="languages" bindLabel="name" placeholder="Choose language" formControlName="language" [(ngModel)]="selectedLanguage">
+                                    </ng-select>
+                                  
+                                  
+                                   
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label for="inputname"
+                                    >Will your script be translated into other
+                                    Languages?</label
+                                  >
+                                  <div class="input-content">
+                                    <i class="icon-check" id="icon" [ngClass]="{'success-icon':!f.formcheck1.errors?.required && f.formcheck1.dirty}"></i>
+                                    <div class="" style="margin-top: 6px;">
+                                      <div
+                                        class="custom-control custom-radio d-block float-left"
+                                      >
+                                        <input
+                                          type="radio"
+                                          id="radio1"
+                                          name="formcheck1"
+                                          value="yes"
+                                          class="custom-control-input form-control"
+                                          formControlName="formcheck1"
+                                          
+                                        />
+                                        <label
+                                          class="custom-control-label"
+                                          for="radio1"
+                                          >Yes</label
+                                        >
+                                      </div>
+                                      <div
+                                        class="custom-control custom-radio d-block float-left ml-1"
+                                      >
+                                        <input
+                                          type="radio"
+                                          id="radio2"
+                                          name="formcheck1"
+                                          value="no"
+                                          formControlName="formcheck1"
+                                          class="custom-control-input form-control"
+                                        />
+                                        <label
+                                          class="custom-control-label"
+                                          for="radio2"
+                                          >No</label
+                                        >
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label for="inputname"
+                                    >What is your script genra?</label
+                                  >
+                                  <div class="input-content">
+                                    <i class="icon-check" id="icon" [ngClass]="{'success-icon': selectedgenra}"></i>
+                                    <ng-select [items]="genra" bindLabel="name" placeholder="Choose genra" formControlName="genra"                                    [(ngModel)]="selectedgenra">
+                                    </ng-select>
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label for="inputname"
+                                    >What is your script sub genra?</label
+                                  >
+                                  <div class="input-content">
+                                    <i class="icon-check" id="icon" [ngClass]="{'success-icon': selectedSubgenra}"></i>
+                                    <ng-select [items]="subgenra" bindLabel="name"  placeholder="Choose Sub genra" formControlName="subGenra" [(ngModel)]="selectedSubgenra">
+                                    </ng-select>
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label for="inputname"
+                                    >How do you rate your script content?</label
+                                  >
+                                  <div class="input-content">
+                                    <i class="icon-check" id="icon" [ngClass]="{'success-icon': selectedeating}"></i>
+                                    <ng-select [items]="rating" bindLabel="name" placeholder="Choose Rating" formControlName="movie" [(ngModel)]="selectedeating">
+                                    </ng-select>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-xl-4 col-lg-4 col-md-6 col-6">
+                                <div class="form-group">
+                                  <label for="inputname"
+                                    >Your script is for:</label
+                                  >
+                                  <div class="input-content">
+                                    <i class="icon-check" id="icon" [ngClass]="{'success-icon':!f.formcheck2.errors?.required && f.formcheck2.dirty}"></i>
+                                    <div class="" style="margin-top: 6px;">
+                                      <div
+                                        class="custom-control custom-radio d-block float-left" style="width: 100%;"
+                                      >
+                                        <input
+                                          type="radio"
+                                          id="radio3"
+                                          name="formcheck2"
+                                          value="Feature"
+                                          formControlName="formcheck2"
+                                          class="custom-control-input form-control"
+                                          
+                                        />
+                                        <label
+                                          class="custom-control-label"
+                                          for="radio3"
+                                          >Feature film</label
+                                        >
+                                      </div>
+                                      <div
+                                        class="custom-control custom-radio d-block float-left " style="width: 100%;"
+                                      >
+                                        <input
+                                          type="radio"
+                                          id="radio4"
+                                          name="formcheck2"
+                                          value="Live"
+                                          formControlName="formcheck2"
+                                          class="custom-control-input form-control"
+                                          
+                                        />
+                                        <label
+                                          class="custom-control-label"
+                                          for="radio4"
+                                          >Live-action TV series</label
+                                        >
+                                      </div>
+                                      <div
+                                      class="custom-control custom-radio d-block float-left " style="width: 100%;"
+                                    >
+                                      <input
+                                        type="radio"
+                                        id="radio5"
+                                        name="formcheck2"
+                                        formControlName="formcheck2"
+                                        value="short"
+                                        class="custom-control-input form-control"
+                                        
+                                      />
+                                      <label
+                                        class="custom-control-label"
+                                        for="radio5"
+                                        >short- form film and video content</label
+                                      >
+                                    </div>
+                                    <div
+                                    class="custom-control custom-radio d-block float-left " style="width: 100%;"
+                                  >
+                                    <input
+                                      type="radio"
+                                      id="radio6"
+                                      name="formcheck2"
+                                      formControlName="formcheck2"
+                                      value="Animated"
+                                      class="custom-control-input form-control"
+                                      
+                                    />
+                                    <label
+                                      class="custom-control-label"
+                                      for="radio6"
+                                      >Animated Film/Series</label
+                                    >
+                                  </div>
+                                  <div
+                                  class="custom-control custom-radio d-block float-left " style="width: 100%;"
+                                >
+                                  <input
+                                    type="radio"
+                                    id="radio7"
+                                    name="formcheck2"
+                                    formControlName="formcheck2"
+                                    value="TV"
+                                    class="custom-control-input form-control"
+                                    
+                                  />
+                                  <label
+                                    class="custom-control-label"
+                                    for="radio7"
+                                    >TV Show</label
+                                  >
+                                </div>
+                                <div
+                                class="custom-control custom-radio d-block float-left " style="width: 100%;"
+                              >
+                                <input
+                                  type="radio"
+                                  id="radio8"
+                                  name="formcheck2"
+                                  formControlName="formcheck2"
+                                  value="web"
+                                  class="custom-control-input form-control"
+                                  
+                                />
+                                <label
+                                  class="custom-control-label"
+                                  for="radio8"
+                                  >Short web series</label
+                                >
+                              </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="form-group">
+                                  <label for="inputname"
+                                    >Is this script genuinely yours?</label
+                                  >
+                                  <div class="input-content">
+                                    <i class="icon-check" id="icon" [ngClass]="{'success-icon':!f.formcheck3.errors?.required && f.formcheck3.dirty}"></i>
+                                    <div class="" style="margin-top: 6px;">
+                                      <div
+                                        class="custom-control custom-radio d-block float-left"
+                                      >
+                                        <input
+                                          type="radio"
+                                          id="radio9"
+                                          name="formcheck3"
+                                          value="Yes"
+                                          formControlName="formcheck3"
+                                          class="custom-control-input form-control"
+                                          (change)="handlechangeScript($event)"
+                                          
+                                        />
+                                        <label
+                                          class="custom-control-label"
+                                          for="radio9"
+                                          >Yes</label
+                                        >
+                                      </div>
+                                      <div
+                                        class="custom-control custom-radio d-block float-left ml-1"
+                                      >
+                                        <input
+                                          type="radio"
+                                          id="radio10"
+                                          name="formcheck3"
+                                          formControlName="formcheck3"
+                                          value="No"
+                                          (change)="handlechangeScript($event)"
+                                          class="custom-control-input form-control"
+                                          
+                                        />
+                                        <label
+                                          class="custom-control-label"
+                                          for="radio10"
+                                          >No</label
+                                        >
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div *ngIf="showscriptLink">
+
+                                <div class="form-group">
+                                  <label for="inputname"
+                                    >Your script is based on:</label
+                                  >
+                                  <div class="input-content">
+                                    <i class="icon-check" id="icon" [ngClass]="{'success-icon': selectscript}"></i>
+                                    <ng-select [items]="scripts" bindLabel="name" placeholder="Choose script" formControlName="script" [(ngModel)]="selectscript">
+                                    </ng-select>
+                                  
+                                  
+                                   
+                                  </div>
+                                </div>
+
+                                <div class="form-group">
+                                  <label for="inputname"
+                                    >Link us to the source of your work</label
+                                  >
+                                  <div class="input-content">
+                                    <i class="icon-check" id="icon" [ngClass]="{'success-icon': !f.source.invalid && f.source.touched && f.source.dirty}"></i>
+                                    <input
+                                      type="text"
+                                      class="form-control"
+                                      id="inputname"
+                                      formControlName="source"
+                                      
+                                    />
+                                  </div>
+                                </div>
+
+                               
+                                <div class="form-group">
+                                  <label for="inputname"
+                                    >Do you have an authorization letter to use this work from the owner?</label
+                                  >
+                                  <div class="input-content">
+                                    <i class="icon-check" id="icon" [ngClass]="{'success-icon':!f.formcheck4.errors?.required && f.formcheck4.dirty}"></i>
+                                    <div class="" style="margin-top: 6px;">
+                                      <div
+                                        class="custom-control custom-radio d-block float-left"
+                                      >
+                                        <input
+                                          type="radio"
+                                          id="radio11"
+                                          name="formcheck4"
+                                          value="yes"
+                                          formControlName="formcheck4"
+                                          class="custom-control-input form-control"
+                                          
+                                        />
+                                        <label
+                                          class="custom-control-label"
+                                          for="radio11"
+                                          >Yes</label
+                                        >
+                                      </div>
+                                      <div
+                                        class="custom-control custom-radio d-block float-left ml-1"
+                                      >
+                                        <input
+                                          type="radio"
+                                          id="radio12"
+                                          formControlName="formcheck4"
+                                          name="formcheck4"
+                                          value="no"
+                                          class="custom-control-input form-control"
+                                          
+                                        />
+                                        <label
+                                          class="custom-control-label"
+                                          for="radio12"
+                                          >No</label
+                                        >
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+
+                              </div>
+
+
+                               
+
+                               
+
+                              
+                              </div>
+                              <div class="col-xl-4 col-lg-4 col-md-6 col-6">
+                                <div class="form-group lastformgroup">
+                                  <label for="inputname"
+                                    >Tell us a summary about your script content</label
+                                  >
+                                  <div class="input-content">
+                                    <div class="textarea-content">
+                                      <i class="icon-check" id="icon" [ngClass]="{'success-icon': !f.summery.invalid && f.summery.touched && f.summery.dirty}"></i>
+                                      <textarea id="textarea" rows="8" class="form-control" name="summery" placeholder="" formControlName="summery"
+                                      required></textarea>
+                                    </div>
+                                   
+
+                                    <div class="nextcontent">
+                                      <button
+                                        type="button"
+                                        (click)="next()"
+                                        class="btn btnnext"
+                                        id="btn"
+                                        [disabled]="!(selectedLanguage && selectedeating && selectedgenra && selectedSubgenra
+                                        && f.summery.valid && f.name.valid && f.formcheck1.dirty && f.formcheck2.dirty && (f.formcheck3.dirty && f.formcheck3.value== 'Yes' && !showscriptLink) || (f.formcheck3.dirty && f.formcheck3.value== 'No' && showscriptLink && selectscript && f.formcheck4.dirty && f.source.valid))"
+                                        [ngClass]="{ 'success-upload': selectedLanguage && selectedeating && selectedgenra && selectedSubgenra
+                                        && f.summery.valid && f.name.valid && f.formcheck1.dirty && f.formcheck2.dirty && (f.formcheck3.dirty && f.formcheck3.value== 'Yes' && !showscriptLink) || (f.formcheck3.dirty && f.formcheck3.value== 'No' && showscriptLink && selectscript && f.formcheck4.dirty && f.source.valid)
+                                       }"
+                                        
+                                      >
+                                        Next Step
+                                        <i class="ft-chevron-right"></i>
+                                      </button>
+                                    </div>
+
+                                  
+                                  </div>
+                                </div>
+                              </div>
+
+                            
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                 
+                </div>
+                <div id="test-l-2" class="content">
+                  <div class="materials">
+                    <div class="row">
+                      <div class="col-xl-10 col-lg-10 col-md-10 col-10">
+                        <div class="upload-material">
+                          <h4>Please upload your script/content file here</h4>
+                          <div class="upload-content">
+                            <i
+                              class="icon-check"
+                              id="icon"
+                              [ngClass]="{ 'success-upload': fileToUpload }"
+                            ></i>
+                            <div
+                              class="upload"
+                              (click)="uploadfile()"
+                              [ngClass]="{ 'success-upload': fileToUpload }"
+                            >
+                              <img
+                                src="../../../../assets/img/new/upload.png"
+                              />
+                              <p>Drop files or click to chose</p>
+                            </div>
+                          </div>
+                        </div>
+                        <ul>
+                          <li>- Accepted formats : PDF, WORD, RAR, ZIP</li>
+                          <li>
+                            - You can include photo reference or concept visual
+                            arts if needed.
+                          </li>
+                          <li>
+                            - You need to include authorization letter from your
+                            work owner in case of any.
+                          </li>
+                          <li>- No scanned papers</li>
+                          <li>
+                            - For multiple files, please compress into a RAR or
+                            ZIP file.
+                          </li>
+                        </ul>
+                      </div>
+
+                      <div class="col-xl-2 col-lg-2 col-md-2 col-2">
+                        <div class="nextcontent">
+                          <button
+                            [ngClass]="{ 'success-upload': fileToUpload }"
+                            (click)="next()"
+                            type="button"
+                            class="btn btnnext"
+                            id="btn-m-upload"
+                            [disabled]="!fileToUpload"
+                          >
+                            Next Step
+                            <i class="ft-chevron-right"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group" hidden>
+                    <input
+                      (change)="onFileChanged($event.target.files)"
+                      type="file"
+                      class="form-control"
+                      id="Inputupload"
+                    />
+                  </div>
+                </div>
+
+                <!-- <button (click)="next()" class="btn btn-primary">Next</button> -->
+                <div id="test-l-3" class="content">
+                  <div class="terms">
+                    <div class="row">
+                      <div class="col-xl-10 col-lg-10 col-md-10 col-10">
+                        <h4>Please read the terms and conditions carefuly</h4>
+                        <div class="condtion">
+                          <p>
+                            Sed ut perspiciatis unde omnis iste natus error sit
+                            voluptatem accusantium doloremque laudantium, totam
+                            rem aperiam, eaque ipsa quae ab illo inventore
+                            veritatis et quasi architecto beatae vitae dicta
+                            sunt explicabo. Nemo enim ipsam voluptatem quia
+                            voluptas sit aspernatur aut odit aut fugit, sed quia
+                            consequuntur magni dolores eos qui ratione
+                            voluptatem sequi nesciunt. Neque porro quisquam est,
+                            qui dolorem ipsum quia dolor sit amet, consectetur,
+                            adipisci velit, sed quia non numquam eius modi
+                            tempora incidunt ut labore et dolore magnam aliquam
+                            quaerat voluptatem. Ut enim ad minima veniam, quis
+                            nostrum exercitationem ullam corporis suscipit
+                            laboriosam, nisi ut aliquid ex ea commodi
+                            consequatur? Quis autem vel eum iure reprehenderit
+                            qui in ea voluptate velit esse quam nihil molestiae
+                            consequatur, vel illum qui dolorem eum fugiat quo
+                            voluptas nulla pariatur?
+                          </p>
+                          <p>
+                            Sed ut perspiciatis unde omnis iste natus error sit
+                            voluptatem accusantium doloremque laudantium, totam
+                            rem aperiam, eaque ipsa quae ab illo inventore
+                            veritatis et quasi architecto beatae vitae dicta
+                            sunt explicabo. Nemo enim ipsam voluptatem quia
+                            voluptas sit aspernatur aut odit aut fugit, sed quia
+                            consequuntur magni dolores eos qui ratione
+                            voluptatem sequi nesciunt. Neque porro quisquam est,
+                            qui dolorem ipsum quia dolor sit amet, consectetur,
+                            adipisci velit, sed quia non numquam eius modi
+                            tempora incidunt ut labore et dolore magnam aliquam
+                            quaerat voluptatem. Ut enim ad minima veniam, quis
+                            nostrum exercitationem ullam corporis suscipit
+                            laboriosam, nisi ut aliquid ex ea commodi
+                            consequatur? Quis autem vel eum iure reprehenderit
+                            qui in ea voluptate velit esse quam nihil molestiae
+                            consequatur, vel illum qui dolorem eum fugiat quo
+                            voluptas nulla pariatur?
+                          </p>
+                          <p>
+                            Sed ut perspiciatis unde omnis iste natus error sit
+                            voluptatem accusantium doloremque laudantium, totam
+                            rem aperiam, eaque ipsa quae ab illo inventore
+                            veritatis et quasi architecto beatae vitae dicta
+                            sunt explicabo. Nemo enim ipsam voluptatem quia
+                            voluptas sit aspernatur aut odit aut fugit, sed quia
+                            consequuntur magni dolores eos qui ratione
+                            voluptatem sequi nesciunt. Neque porro quisquam est,
+                            qui dolorem ipsum quia dolor sit amet, consectetur,
+                            adipisci velit, sed quia non numquam eius modi
+                            tempora incidunt ut labore et dolore magnam aliquam
+                            quaerat voluptatem. Ut enim ad minima veniam, quis
+                            nostrum exercitationem ullam corporis suscipit
+                            laboriosam, nisi ut aliquid ex ea commodi
+                            consequatur? Quis autem vel eum iure reprehenderit
+                            qui in ea voluptate velit esse quam nihil molestiae
+                            consequatur, vel illum qui dolorem eum fugiat quo
+                            voluptas nulla pariatur?
+                          </p>
+                          <p>
+                            Sed ut perspiciatis unde omnis iste natus error sit
+                            voluptatem accusantium doloremque laudantium, totam
+                            rem aperiam, eaque ipsa quae ab illo inventore
+                            veritatis et quasi architecto beatae vitae dicta
+                            sunt explicabo. Nemo enim ipsam voluptatem quia
+                            voluptas sit aspernatur aut odit aut fugit, sed quia
+                            consequuntur magni dolores eos qui ratione
+                            voluptatem sequi nesciunt. Neque porro quisquam est,
+                            qui dolorem ipsum quia dolor sit amet, consectetur,
+                            adipisci velit, sed quia non numquam eius modi
+                            tempora incidunt ut labore et dolore magnam aliquam
+                            quaerat voluptatem. Ut enim ad minima veniam, quis
+                            nostrum exercitationem ullam corporis suscipit
+                            laboriosam, nisi ut aliquid ex ea commodi
+                            consequatur? Quis autem vel eum iure reprehenderit
+                            qui in ea voluptate velit esse quam nihil molestiae
+                            consequatur, vel illum qui dolorem eum fugiat quo
+                            voluptas nulla pariatur?
+                          </p>
+                          <p>
+                            Sed ut perspiciatis unde omnis iste natus error sit
+                            voluptatem accusantium doloremque laudantium, totam
+                            rem aperiam, eaque ipsa quae ab illo inventore
+                            veritatis et quasi architecto beatae vitae dicta
+                            sunt explicabo. Nemo enim ipsam voluptatem quia
+                            voluptas sit aspernatur aut odit aut fugit, sed quia
+                            consequuntur magni dolores eos qui ratione
+                            voluptatem sequi nesciunt. Neque porro quisquam est,
+                            qui dolorem ipsum quia dolor sit amet, consectetur,
+                            adipisci velit, sed quia non numquam eius modi
+                            tempora incidunt ut labore et dolore magnam aliquam
+                            quaerat voluptatem. Ut enim ad minima veniam, quis
+                            nostrum exercitationem ullam corporis suscipit
+                            laboriosam, nisi ut aliquid ex ea commodi
+                            consequatur? Quis autem vel eum iure reprehenderit
+                            qui in ea voluptate velit esse quam nihil molestiae
+                            consequatur, vel illum qui dolorem eum fugiat quo
+                            voluptas nulla pariatur?
+                          </p>
+                          <p>
+                            Sed ut perspiciatis unde omnis iste natus error sit
+                            voluptatem accusantium doloremque laudantium, totam
+                            rem aperiam, eaque ipsa quae ab illo inventore
+                            veritatis et quasi architecto beatae vitae dicta
+                            sunt explicabo. Nemo enim ipsam voluptatem quia
+                            voluptas sit aspernatur aut odit aut fugit, sed quia
+                            consequuntur magni dolores eos qui ratione
+                            voluptatem sequi nesciunt. Neque porro quisquam est,
+                            qui dolorem ipsum quia dolor sit amet, consectetur,
+                            adipisci velit, sed quia non numquam eius modi
+                            tempora incidunt ut labore et dolore magnam aliquam
+                            quaerat voluptatem. Ut enim ad minima veniam, quis
+                            nostrum exercitationem ullam corporis suscipit
+                            laboriosam, nisi ut aliquid ex ea commodi
+                            consequatur? Quis autem vel eum iure reprehenderit
+                            qui in ea voluptate velit esse quam nihil molestiae
+                            consequatur, vel illum qui dolorem eum fugiat quo
+                            voluptas nulla pariatur?
+                          </p>
+                          <br />
+                        </div>
+
+                        <div class="accept" id="accept">
+                          <div style="display: flex">
+                            <i class="icon-check" id="icon"></i>
+                            <p>I agree on all the terms and conditions above</p>
+                          </div>
+
+                          <div class="form-group">
+                            <div
+                              class="custom-control custom-radio d-block float-left"
+                            >
+                              <input
+                                type="radio"
+                                name="radiostep3"
+                                id="radio1condtion"
+                                class="custom-control-input form-control"
+                                (change)="handelchange($event)"
+                                value="Yes"
+                              />
+                              <label
+                                class="custom-control-label"
+                                for="radio1condtion"
+                                >Yes</label
+                              >
+                            </div>
+                            <div
+                              class="custom-control custom-radio d-block float-left ml-1"
+                            >
+                              <input
+                                type="radio"
+                                name="radiostep3"
+                                class="custom-control-input form-control"
+                                id="radio2condtion"
+                                value="No"
+                                (change)="handelchange($event)"
+                              />
+                              <label
+                                class="custom-control-label"
+                                for="radio2condtion"
+                                
+                                >No</label
+                              >
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-xl-2 col-lg-2 col-md-2 col-2">
+                        <div class="nextcontent">
+                          <button
+                            type="button"
+                            (click)="next()"
+                            class="btn btnnext"
+                            id="btnstep3"
+                            [disabled]="!acceptCondtion"
+                          >
+                            Next Step
+                            <i class="ft-chevron-right"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div></div>
+                  </div>
+                  <!-- <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" />
+                  </div> -->
+                  <!-- <button (click)="next()" class="btn btn-primary">Next</button> -->
+                </div>
+                <div id="test-l-4" class="content text-center">
+                  <div class="final-step">
+                    <img src="../../../../assets/img/new/done.png" />
+                    <p>
+                      Thank you, we are uploading your content now,
+                      <br />
+                      you may find your request and it’s under process,
+                      <br />
+                      you can check your request progress at your
+                      <br />
+                      home page top panel
+                    </p>
+                    <h4>
+                      Do you want to submit another script revision request?
+                    </h4>
+                  </div>
+                  <button class="addbtn" type="button" (click)="onSubmit()">
+                    <i class="icon-plus"></i>
+                    <a> Add New</a>
+                  </button>
+                  <!-- <button type="submit" class="btn btn-primary mt-5">
+                    Submit
+                  </button> -->
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

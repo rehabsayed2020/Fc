@@ -1,0 +1,367 @@
+@import url('../welcome-script/welcome-script.component.scss');
+@import '~bs-stepper/dist/css/bs-stepper.min.css';
+
+
+
+.bs-stepper-header {
+  
+    justify-content: space-between;
+    border-bottom: 1px solid #707070;
+    margin: 2rem 0 3rem 0;}
+
+
+
+.bs-stepper .step-trigger
+{
+    font-weight: bold!important;
+    padding: 10px 20px!important;
+    color: #A9A9A9!important;
+
+}
+
+.bs-stepper .step-trigger:not(:disabled):not(.disabled)
+{
+   color: #6E1946!important;
+
+}
+
+.terms h4
+{
+    font-family: sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.terms p
+{
+    font-family: sans-serif;
+    font-size: 12px;
+    text-align: left;
+    font-weight: 600;
+    margin-bottom: 0;
+    line-height: 17px;
+    color: #2E2E2E;
+}
+
+.condtion
+{
+    max-height: 570px;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.condtion::-webkit-scrollbar { width: 0 !important }
+
+.accept
+{
+    background-color: #6E1946;
+    display: flex;
+    padding: 8px  5px 8px 20px;
+}
+.accept .form-group
+{
+    margin-bottom: 0;
+    margin-top: -2px;
+
+}
+
+.accept p{
+    color: #fff;
+    font-weight: 100;
+    margin: 0 10px 0 6px;
+
+}
+
+.accept  i
+{
+    background-color: #A9A9A9;
+    border-radius: 50%;
+    font-size: 20px;
+    color: #6e1946;
+    border: none;
+    font-weight: bold;
+    height: 20px;
+}
+
+.custom-radio .custom-control-label::before
+{
+    border-radius: 0;
+}
+
+form label
+{
+    color: #fff;
+    font-family: sans-serif;
+}
+.custom-control
+{
+    margin-right: 18px;
+}
+
+.custom-control-input:checked ~ .custom-control-label::before
+{
+    border-color: #fff;
+    border: 2px solid #fff;
+    background-color: #6E1946;
+}
+.custom-radio .custom-control-input:checked ~ .custom-control-label::after
+{
+    background-image: none;
+}
+
+.acceptcon , .greenbtn
+{
+    background-color: #0a7523!important;
+}
+.checkicon
+{
+    background-color: #fff!important;
+    
+    color: #0a7523!important;
+}
+
+
+
+.btnnext
+{
+    background-color: #6E1946;
+    color: #fff;
+    border-radius: 17px;
+    padding: 5px 9px 5px 30px;
+}
+.nextcontent
+{
+    margin-top: 27rem;
+}
+.nextcontent i{
+    margin-left: 6px;
+}
+
+.custom-control-input:first-child
+{
+
+}
+
+.addbtn
+{
+
+    background-color: #6E1946;
+    color: #fff;
+    padding: 8px 38px 8px 12px;    border-radius: 20px;
+    font-size: 15px;
+    font-family: sans-serif;
+    margin-top: 3vh;
+    border: none;
+}
+
+.final-step
+{
+    width: 60%;
+    margin: auto;
+}
+.final-step img
+{
+    width: 50px;
+    height: 50px;
+    margin-bottom: 30px;
+}
+.final-step p
+{
+    color: #6E1946;
+    font-family: sans-serif;
+    font-size: 18px;
+    margin-bottom: 35px;
+}
+.final-step h4
+{
+    color: #6E1946;
+    font-size: 15px;
+    font-family: sans-serif;
+}
+
+.upload-material
+{
+    width: 38%;
+    margin: auto;
+    padding-top: 15vh;
+}
+
+.upload-material h4
+{
+    font-family: sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    color: #272727;
+
+}
+
+.upload
+{
+    background-color: #6E1946;
+    width: 80%;
+    margin-left: 0.6rem;
+    border-radius: 10px;
+    color: #fff;
+    text-align: center;
+    padding: 16px 12px;
+    cursor: pointer;
+}
+
+.upload-content 
+{
+    display: flex;
+    margin: 23px 0 32px 0;
+}
+
+
+.upload-content i
+{
+    background-color: #A9A9A9;
+    width: 21px;
+    height: 22px;
+    font-size: 23px;
+    border-radius: 50%;
+    color: #fff;
+    border: none;
+}
+.materials ul
+{
+    width: 38%;
+    margin: auto;
+    list-style-type: none;
+    text-align: left;
+}
+.materials ul li
+{
+    font-family: sans-serif;
+    line-height: 1.5rem;
+    font-size: 14px;
+}
+
+.success-upload , .success-icon
+{
+    background-color: #0A7523!important;
+    color: #fff!important;
+}
+
+.form-content form 
+{
+    display: flex;
+    color: #000;
+}
+.form-content  .form-group
+{
+    padding: 0 20px 0 0!important;
+}
+
+.form-content form label
+{
+    color: #272727;
+    margin-left: 1.8rem;
+    font-family: unset;
+    font-size: 12px;
+    font-weight: 400;
+    text-transform: capitalize;
+    font-family: sans-serif;
+}
+
+.input-content
+{
+    display: flex;
+}
+.input-content  .icon-check
+{
+    background-color: #A9A9A9;
+    width: 21px;
+    height: 21px;
+    font-size: 23px;
+    border-radius: 50%;
+    color: #fff;
+    border: none;
+    margin: 7px 7px 0 0;
+}
+.input-content input
+{
+    border: 2px solid #6E1946;
+    border-radius: 14px;
+
+}
+.input-content input:focus
+{
+    border-color:  #6E1946!important;
+    box-shadow: none!important;
+
+}
+
+.input-content .ng-select .ng-select-container
+{
+    border: 2px solid #6E1946!important;
+    border-radius: 14px!important;
+    background-color: #6E1946!important;
+    color: #fff!important;
+    appearance: none!important;
+    padding-right: 15px!important;
+    background: url('../../../../assets/img/new/arrow.svg') 97% / 10% no-repeat #6E1946!important;
+}
+
+.input-content .custom-control-label::after
+{
+   
+}
+::ng-deep.ng-select
+{
+    width: 100%;
+}
+::ng-deep.ng-select .ng-select-container .ng-value-container .ng-placeholder
+{
+color: #fff!important;
+}
+
+::ng-deep.ng-dropdown-panel .ng-dropdown-panel-items .ng-option
+{
+    color: #fff!important;
+    background-color: #6e1946!important;
+}
+::ng-deep.ng-dropdown-panel .ng-dropdown-panel-items .ng-option:hover
+{
+    color: #fff!important;
+    background-color: #6e1946!important;
+}
+
+::ng-deep.ng-select-container {
+    border: 2px solid #6E1946!important;
+    border-radius: 14px!important;
+    background-color: #6E1946!important;
+    color: #fff!important;
+    appearance: none!important;
+    padding-right: 15px!important;
+    background: url('../../../../assets/img/new/arrow.svg') 97% / 9% no-repeat #6E1946!important;
+ }
+ ::ng-deep.ng-select .ng-arrow-wrapper 
+ {
+     display: none!important;
+     
+ }
+
+ .lastformgroup .input-content
+ {
+     display: block;
+ }
+
+ .lastformgroup .nextcontent
+ {
+    margin-top: 13rem;
+ }
+
+ .lastformgroup .nextcontent button
+ {
+   float: right;
+ }
+ .textarea-content
+ {
+     display: flex;
+ }
+ .textarea-content textarea
+ {
+    border: 2px solid #6e1946;
+ }

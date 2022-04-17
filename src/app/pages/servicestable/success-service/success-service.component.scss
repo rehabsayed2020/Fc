@@ -1,0 +1,51 @@
+#success
+{
+    padding: 50px 5px;
+}
+
+.success-content
+{
+    display: flex;
+    justify-content: space-between;
+}
+
+.success-title h2
+{
+    color: #0A7523;
+    font-family: sans-serif;
+}
+
+.success-content span
+{
+    color: #6E1946;
+    font-size: 18px;
+    font-weight: 600;
+    font-family: sans-serif;
+    /* margin: 0 10px; */
+    padding: 20px 10px;
+}
+
+.download p
+{
+    color: #000000;
+    font-family: sans-serif;
+    font-size: 14px;
+    margin: 18px 0;
+    font-weight: bold;
+}
+.download a
+{
+    background-color: #6E1946;
+    color: #fff;
+    padding: 13px 20px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-family: sans-serif;
+}
+
+.rebort img
+{
+    width: 65px;
+    height: 75px;
+    margin-top: -20px;
+}

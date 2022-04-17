@@ -1,0 +1,79 @@
+#process
+{
+    padding: 50px 5px;
+}
+
+.process-content
+{
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    z-index: 9999;
+
+}
+
+.process-title h2
+{
+    color: #6E1946;
+    font-family: sans-serif;
+}
+
+.process-content span
+{
+    color: #6E1946;
+    font-size: 18px;
+    font-weight: 600;
+    font-family: sans-serif;
+    /* margin: 0 10px; */
+    padding: 20px 10px;
+}
+
+.download
+{
+    text-align: center;
+}
+
+.download p
+{
+    color: #000000;
+    font-family: sans-serif;
+    font-size: 14px;
+    margin: 18px 0;
+    font-weight: 100;
+}
+.download ul{
+    list-style-type: none;
+}
+.download ul li
+{
+    font-family: sans-serif;
+    font-size: 15px;
+    font-weight: bolder;
+    line-height: 21px;
+}
+.download a
+{
+    background-color: #6E1946;
+    color: #fff;
+    padding: 13px 20px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-family: sans-serif;
+}
+
+.progressbar
+{
+    margin: 45px 0;
+
+}
+.progressbar img
+{
+    width: 85%;
+}
+
+.rebort img
+{
+    width: 65px;
+    height: 75px;
+    margin-top: -20px;
+}

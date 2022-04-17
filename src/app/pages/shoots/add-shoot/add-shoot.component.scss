@@ -1,0 +1,121 @@
+.finalsubmit
+{
+    padding: 8px 40px 8px 40px!important;
+font-weight: 600;
+margin-top: 70vh;
+background-color: #6E1946;
+    color: #fff;
+    padding: 8px 38px 8px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-family: sans-serif;
+    border: none;
+}
+
+
+
+@import url("../welcome-shoot/welcome-shoot.component.scss");
+@import '~bs-stepper/dist/css/bs-stepper.min.css';
+@import url("../../script-revision/add-script/add-script.component.scss");
+
+
+.form-content
+{
+    display: flex;
+}
+.form-content  .form-group
+{
+    padding: 0 30px 0 0;
+}
+
+.form-content  label
+{
+    color: #272727;
+    margin-left: 1rem;
+    // font-family: unset;
+    font-size: 10px;
+    font-weight: 400;
+    text-align: left;
+    text-transform: capitalize;
+    font-family: sans-serif;
+}
+.form-content .trueform
+{
+    border: 3px solid #6e1946;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 28px;
+    padding: 5px 0;
+    background-color: #A9A9A9;
+    color: #6e1946;
+}
+.form-content img::after
+{
+    content: '';
+    border-bottom: 1px solid red;
+}
+.horizon1
+{
+    border-bottom: 1px solid #A9A9A9;
+    padding: 0 0 40px 0;
+
+}
+.horizon2{
+    border-bottom: 1px solid #A9A9A9;
+    padding: 75px 0;
+
+}
+.horizon3
+{
+    padding: 75px 0;
+
+}
+.form1 h4 , .form2 h4 , .form3 h4{
+    text-align: left;
+    color: #6E1946;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.firstf , .secondf , .thridf
+{
+    display: flex;
+    text-align: left;
+}
+
+.line {
+    border-left: 3px solid #6E1946;
+    height: 138px;
+
+    display: block;
+    margin: 0 50%;
+}
+
+.finalradio .custom-radio
+{
+    width: 40%;
+}
+
+
+
+.read
+{
+    padding: 8px 30px 8px 30px!important;
+    font-weight: 600;
+    margin-top: 0!important;
+
+    background-color: #6E1946;
+    color: #fff;
+    padding: 8px 38px 8px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-family: sans-serif;
+    margin-top: 15%;
+    border: none;
+    width: 100%;
+}
+.success-icon
+{
+    // border: 5px solid #c2baba!important;
+}

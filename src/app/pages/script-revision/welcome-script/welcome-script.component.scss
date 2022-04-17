@@ -1,0 +1,92 @@
+
+
+.title
+{
+    font-size: 0.9rem;
+}
+.header-title
+{
+padding-left: 0.5rem;
+}
+.header-title h2
+{
+    letter-spacing: 0px;
+    color: #6E1946;
+    font-family: sans-serif;
+    font-size: 18px;
+}
+
+.welcome-container
+{
+    padding: 60px 10px;
+    text-align: center;
+}
+
+.welcome-container h2
+{
+    font-size: 23px;
+    font-weight: 600;
+}
+
+
+.choose p 
+{
+    margin-top: 15%;
+    font-family: sans-serif;
+    font-size: 25px;
+    font-weight: bold;
+    color: #0A7523;
+}
+
+.choose button
+{
+
+    background-color: #6E1946;
+    color: #fff;
+    padding: 8px 38px 8px 12px;    border-radius: 20px;
+    font-size: 13px;
+    font-family: sans-serif;
+    margin-top: 15%;
+    border: none;
+}
+.choose a
+{
+    margin-left: 3px;
+    color: #fff;
+  
+}
+.choose i
+{
+    font-size: 17px;
+}
+
+.top-nav
+{
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+    width: 52%;
+    margin: auto;
+}
+.top-nav a{
+    font-family: sans-serif;
+    color: #949494;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.top-nav a::after
+{
+    content: "";
+    border-right: 2px solid #949494;
+    width: 3px;
+    height: 3px;
+    margin: 0 20px;
+}
+
+.top-nav a:last-child:after
+{
+    content: "";
+    border-right: none
+
+}
